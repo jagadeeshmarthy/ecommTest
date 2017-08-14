@@ -5,7 +5,7 @@ const cart = require('../controllers/cart')
 
 //product routes
 router.get('/products', products.productListing)
-router.get('/products/:id', products.productPage)
+router.get('/product/:id', products.productPage)
 
 //cart routes
 router.get('/cart', cart.listCartItems)

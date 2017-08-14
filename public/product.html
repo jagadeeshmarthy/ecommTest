@@ -1,0 +1,12 @@
+<div class="product-container" ng-controller="productController">
+    <div class="product" >
+        <div>
+            <p>{{detailedProduct.name}}</p>
+            <p>{{detailedProduct.description}}</p>
+            <p>{{detailedProduct.price[0].amount}}$</p>
+            <div>
+                <button class="cart" ng-click="addToCart(detailedProduct.id)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
