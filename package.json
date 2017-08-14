@@ -1,0 +1,27 @@
+{
+  "name": "ecommtest",
+  "version": "1.0.0",
+  "description": "This is providing node js api's to ui for ecommerce platform",
+  "main": "app.js",
+  "scripts": {
+    "start":"nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jagadeeshmarthy/ecommTest.git"
+  },
+  "author": "jagadeesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jagadeeshmarthy/ecommTest/issues"
+  },
+  "homepage": "https://github.com/jagadeeshmarthy/ecommTest#readme",
+  "dependencies": {
+    "@moltin/sdk": "^2.5.0",
+    "body-parser": "^1.17.2",
+    "compression": "^1.7.0",
+    "express": "^4.15.4",
+    "nodemon": "^1.11.0"
+  }
+}
