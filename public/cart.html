@@ -1,0 +1,11 @@
+<div class="cart-container" ng-controller="cartController">
+    <div class="cart-product" >
+        <div ng-repeat ="cart in cartData" style="border-style:outset;margin-bottom:0px">
+        <p>Name:&nbsp;&nbsp;{{cart.name}}</p>
+        <p>Desc:&nbsp;&nbsp;{{cart.description}}</p>
+        <p>Quantity: &nbsp;&nbsp;{{cart.quantity}}</p>
+        <p>Amount: &nbsp;&nbsp;{{cart.unit_price.amount}}$</p>
+        <p>Total value: &nbsp;&nbsp;{{cart.value.amount}}$</p>
+        </div>
+    </div>
+</div>

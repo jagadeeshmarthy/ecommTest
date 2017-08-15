@@ -1,0 +1,21 @@
+<div class="auth-container" ng-controller="authController" style="text-align:center">
+<div style="width:90%;text-align:right;margin-bottom:80px;cursor:pointer">
+<p ng-click="login()">SignIn</p>
+    </div>
+    <div class="register">
+        <form >
+        <h2>SIGNUP</h2>
+            <div class="text-field"></div>Username:
+                <input type="text" ng-model="username" value="" />
+            </div>
+            <div class="text-field">Password:
+                <input type="password" ng-model="password" value=""/>
+            </div>
+            <div class="submit">
+                <button style="cursor:pointer" ng-click="signup()">Sign Up</button>
+            </div>
+        </form>
+    </div>
+    <div class="signin">
+    </div>
+</div>

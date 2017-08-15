@@ -1,9 +1,33 @@
 .product-listing {
-	width:300px;
-	height:300px;
-	float:left;
+    width: 400px;
+    height: 300px;
+    float: left;
+    cursor: pointer;
 }
+
 .cart {
-	cursor:pointer;
-	background-color: "blue"
+    cursor: pointer;
+    color: blue
 }
+
+.text-field {
+    margin-top: 20px;
+}
+
+.submit {
+    margin-top: 20px;
+}
+
+.img-container {
+    width: 50%;
+    float: left;
+    text-align: right;
+}
+
+.text-container {
+    width: 50%;
+    float: left;
+    font-size: 20px;
+}
+
+

@@ -2,18 +2,22 @@
 
 <head>
     <title>ECOMM Test</title>
-     <base href="/ecommTest">
+    <base href="/ecommTest">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <script src="js/lib/angular.min.js"></script>
     <script src="js/lib/angular-route.js"></script>
     <script src="app.js"></script>
-    <script src="product.controller.js"></script>
+    <script src="controller.js"></script>
 </head>
 
 <body ng-app="ecomm">
     <header>
-        <p class="header-text"> Products </p>
+        <div ng-controller="cartController">
+            <div class="header-text" ng-hide="hideHeader()"> 
+            <span class="text-container">Products </span>
+            <span class="img-container"><img src="images/cart.png" width=50px height=50px ng-click="cartList()" style="cursor:pointer;margin:auto;display:block;"/></span></div>
+        </div>
     </header>
     <ng-view></ng-view>
 </body>

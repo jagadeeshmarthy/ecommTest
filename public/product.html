@@ -1,12 +1,16 @@
 <div class="product-container" ng-controller="productController">
-    <div class="product" >
+    <div class="product">
         <div>
-            <p>{{detailedProduct.name}}</p>
-            <p>{{detailedProduct.description}}</p>
-            <p>{{detailedProduct.price[0].amount}}$</p>
+            <p>Name:&nbsp;&nbsp;{{detailedProduct.name}}</p>
+            <p>Desc:&nbsp;&nbsp;{{detailedProduct.description}}</p>
+            <p>Amount:&nbsp;&nbsp;{{detailedProduct.price[0].amount}}$</p>
             <div>
-                <button class="cart" ng-click="addToCart(detailedProduct.id)">Add to Cart</button>
+                <p><span>stock: &nbsp;&nbsp;{{detailedProduct.meta.stock.availability}}</span></p>
             </div>
         </div>
+        <select required ng-model="quantity">
+            <option  ng-repeat="quantity in quantities">{{quantity}}</option>
+        </select>
+        <button class="cart" ng-click="addToCart(detailedProduct.id)">Add to Cart</button>
     </div>
 </div>

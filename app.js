@@ -4,13 +4,14 @@ const compression = require('compression')
 const app = express()
 
 const PORT = process.env.PORT || 9090
+const config = require('./config')
 
+config.Moltin.Authenticate().then((response) => {
+  console.log('authenticated', response);
+});
 
-
-// Moltin.Authenticate().then((response) => {
-//   console.log('authenticated', response);
-// });
-
+require('./connection')
+require('./utils/passport');
 
 app.use(compression())
 app.use(bodyParser.json())
