@@ -23,7 +23,18 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             templateUrl: 'signin.html',
             controller: 'authController'
         })
-         
+        .when('/checkout', {
+            templateUrl: 'checkout.html',
+            controller: 'checkoutController'
+        })
+        .when('/payment', {
+            templateUrl: 'payment.html',
+            controller: 'paymentController'
+        })
+        .when('/orderConfirmation', {
+            templateUrl: 'orderConfirmation.html',
+            controller: 'confirmationController'
+        })
 
         .otherwise({ redirectTo: '/' })
     $locationProvider.html5Mode(true);

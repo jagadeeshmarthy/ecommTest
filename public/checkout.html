@@ -1,0 +1,20 @@
+<div class="checkout-container" ng-controller="checkoutController">
+    <div class="checkout-summary">
+        <div class="delivery-address">
+            <h2>Order Summary</h2>
+            <p style="margin-top:20px;">DeliveryAddress</p>
+            <p>Name:{{productSummary.customer.name}}</p>
+            <p>Address:{{productSummary.shipping_address.line_1}}</p>
+            <p>Address:{{productSummary.shipping_address.line_2}}</p>
+            <p>Postcode:{{productSummary.shipping_address.postcode}}</p>
+        </div>
+        <div class="order-summary">
+            <p>Order Total</p>
+            <p>Order Id:{{productSummary.id}}</p>
+            <p>Total Amount:{{productSummary.meta.display_price.with_tax.formatted}}</p>
+        </div>
+    </div>
+    <div class="checkout">
+        <button style="cursor:pointer" ng-click="checkout()">Place Order</button>
+    </div>
+</div>

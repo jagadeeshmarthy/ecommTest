@@ -1,11 +1,9 @@
 app.controller("productsController", function($scope, $location, $http) {
 
-    console.log($location.url())
     $http.get("http://localhost:9090/api/products")
         .then(function(data) {
             $scope.productData = data.data.data
             $scope.links = data.data.links
-            console.log($scope.productData)
         })
         .catch(function(data) {
             alert("Error in fetching data");
@@ -24,7 +22,6 @@ app.controller("productController", function($scope, $location, $http) {
 
     $scope.productId = $location.url().split('/')[2]
     $scope.quantities = [1, 2, 3, 4]
-    console.log($scope.quantity)
     $http.get("http://localhost:9090/api/product/" + $scope.productId)
         .then(function(data) {
             $scope.detailedProduct = data.data.data
@@ -66,7 +63,6 @@ app.controller("cartController", function($scope, $location, $http) {
         .then(function(data) {
             $scope.cartData = data.data.data
             console.log("in cart list:")
-            console.log($scope.cartData)
         })
         .catch(function(data) {
             alert("Error in fetching cart data");
@@ -76,19 +72,24 @@ app.controller("cartController", function($scope, $location, $http) {
         $location.path('/cart')
     }
 
+    $scope.checkout = function() {
+        $location.path('/checkout');
+    }
+
+    $scope.products = function() {
+        $location.path('/products');
+    }
 })
 app.controller("authController", function($scope, $location, $http) {
 
 
     $scope.signup = function() {
         var data = {
-                username: $scope.username,
-                password: $scope.password
-            }
-        console.log(data)
+            username: $scope.username,
+            password: $scope.password
+        }
         $http.post("http://localhost:9090/api/signup", data)
             .then(function(data) {
-                console.log("in sign up ")
                 alert("registered successfully")
                 $location.path('/signin')
             })
@@ -100,12 +101,11 @@ app.controller("authController", function($scope, $location, $http) {
 
     $scope.signin = function() {
         var data = {
-                username: $scope.username,
-                password: $scope.password
-            }
+            username: $scope.username,
+            password: $scope.password
+        }
         $http.post("http://localhost:9090/api/signin", data)
             .then(function(data) {
-                console.log("in signin")
                 alert(data.data.message);
                 $location.path('/products')
             })
@@ -117,4 +117,45 @@ app.controller("authController", function($scope, $location, $http) {
     $scope.login = function() {
         $location.path('/signin')
     }
+})
+
+app.controller("checkoutController", function($scope, $location, $http) {
+    $http.post("http://localhost:9090/api/checkout")
+        .then(function(data) {
+            $scope.productSummary = data.data.data
+
+        })
+        .catch(function(data) {
+            alert("Error in fetching data");
+
+        })
+
+    $scope.checkout = function() {
+        alert("Proceeding to payment");
+        $location.path('/payment')
+    }
+})
+
+app.controller("paymentController", function($scope, $location, $http) {
+    $scope.orderConfirmation = function() {
+        var data = {
+            cardName: $scope.cardName,
+            cardNumber: $scope.cardNumber,
+            cvv: $scope.cvv,
+            cardExpiry: $scope.cardExpiry
+        }
+        $http.post("http://localhost:9090/api/placeorder")
+            .then(function(data) {
+                $scope.productSummary = data.data.data
+                console.log($scope.productSummary)
+                $location.path('/orderConfirmation')
+            })
+            .catch(function(data) {
+                alert("Error in fetching data");
+
+            })
+    }
+
+
+
 })

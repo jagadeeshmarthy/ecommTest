@@ -18,6 +18,8 @@ router.put('/cart/item', cart.updateCartItem)
 
 //checkout routes
 router.post('/checkout', checkout.checkoutCart)
+router.post('/placeOrder', checkout.placeOrder)
+
 router.get('/orders', checkout.getAllOrders)
 router.get('/order', checkout.getOrder)
 
