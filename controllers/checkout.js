@@ -3,12 +3,12 @@ const config = require('../config')
 let checkoutCart = (request, response) => {
     const data = {
         customer: {
-            name: 'John Doe',
-            email: 'john@doe.co'
+            name: 'JM',
+            email: 'john@jm.co'
         },
         shipping_address: {
-            first_name: 'John',
-            last_name: 'Doe',
+            first_name: 'Jack',
+            last_name: 'Mike',
             line_1: '2nd Floor British India House',
             line_2: '15 Carliol Square',
             city: 'Newcastle Upon Tyne',
@@ -17,8 +17,8 @@ let checkoutCart = (request, response) => {
             country: 'United Kingdom'
         },
         billing_address: {
-            first_name: 'John',
-            last_name: 'Doe',
+            first_name: 'Jack',
+            last_name: 'Mike',
             line_1: '2nd Floor British India House',
             line_2: '15 Carliol Square',
             city: 'Newcastle Upon Tyne',
@@ -36,12 +36,19 @@ let checkoutCart = (request, response) => {
 
 let placeOrder = (request, response) => {
     // Pay using Braintree Payment Method Token
-    Moltin.Orders.Payment('orderId', {
-        gateway: 'braintree',
-        payment_method_token: XXX
-    }).then(() => {
-        // Do something
+    // const checkout = config.Moltin.Orders.Payment(request.body.orderId, {
+    //     gateway: 'braintree',
+    //     payment_method_token: 'XXX'
+    // }).then(() => {
+    //     // Do something
+    //     console.log("successfully placed order")
+    // });
+    const item = config.Moltin.Cart.Delete().then(() => {
+        response.status(200).send({ message: "successfully deleted cart" });
+    }).catch((error) => {
+        response.status(error.errors[0].status).send(error);
     });
+
 }
 
 let getAllOrders = (request, response) => {
@@ -59,5 +66,6 @@ let getOrder = (request, response) => {
 }
 
 exports.checkoutCart = checkoutCart
+exports.placeOrder = placeOrder
 exports.getAllOrders = getAllOrders;
 exports.getOrder = getOrder

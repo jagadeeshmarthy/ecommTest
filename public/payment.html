@@ -1,0 +1,36 @@
+<div class="payment-container" ng-controller="paymentController">
+<div class="payment-details">
+<h2>Enter credit-card details:</h2>
+<table>
+<tr>
+<td>card Number:</td>
+<td><input type="text" ng-model="cardNumber" size="20"/>
+</td>
+</tr>
+
+<tr>
+<td>Name:</td>
+<td><input type="text" ng-model="cardName" size="20"/>
+</td>
+</tr>
+
+<tr>
+<td>Expiry</td>
+<td><input type="text" ng-model="cardExpiry" placeholder="MM/YY" size="20"/>
+</td>
+</tr>
+
+<tr>
+<td>cvv</td>
+<td><input type="text" ng-model="cvv" size="20"/>
+</td>
+</tr>
+
+<tr>
+<td><button style="cursor:pointer" ng-click="orderConfirmation()" > Pay</button>
+</td>
+</tr> 
+
+</div>
+
+</div>

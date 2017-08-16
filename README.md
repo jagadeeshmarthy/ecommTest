@@ -1,1 +1,1 @@
-This is the sample repo for ecomm test
+For authentication start mongodb in your local and then signup and signin to the application.
